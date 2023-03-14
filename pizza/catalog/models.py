@@ -4,12 +4,13 @@ import uuid
 
 
 class Salesman(models.Model):
-    full_name = models.CharField(max_length=30, help_text="Enter seller name")
+    first_name = models.CharField(max_length=100, help_text="Enter the first name of the seller")
+    second_name = models.CharField(max_length=100, help_text="Enter the second name of the seller")
     time_open = models.DateField('Open', null=True, blank=True)
     time_close = models.DateField('Close', null=True, blank=True)
 
     def __str__(self):
-        return '%s %s %s' % (self.full_name, self.time_open, self.time_close)
+        return '%s %s %s %s' % (self.first_name, self.second_name, self.time_open, self.time_close)
 
 
 class Order(models.Model):
