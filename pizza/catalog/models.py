@@ -1,10 +1,14 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 import uuid
 
 
 class Salesman(models.Model):
-    full_name = models.CharField(max_length=30, help_text="Enter seller name")
+    full_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
+    first_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
+    last_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
+    second_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
     time_open = models.DateField('Open', null=True, blank=True)
     time_close = models.DateField('Close', null=True, blank=True)
 

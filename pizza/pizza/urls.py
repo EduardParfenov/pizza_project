@@ -23,7 +23,8 @@ urlpatterns = [
 from django.urls import include
 from django.urls import path
 
-urlpatterns += [path('catalog/', include('catalog.urls')),
+urlpatterns += [
+    path('catalog/', include('catalog.urls')),
 ]
 
 from django.views.generic import RedirectView
