@@ -13,7 +13,7 @@ class Salesman(models.Model):
     time_close = models.DateField('Close', null=True, blank=True)
 
     def __str__(self):
-        return '%s %s %s' % (self.full_name, self.time_open, self.time_close)
+        return '%s %s %s %s' % (self.last_name, self.first_name, self.time_open, self.time_close)
 
 
 class Order(models.Model):
@@ -27,7 +27,15 @@ class Order(models.Model):
 
 class Pizza(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID")
-    price = models.IntegerField(max_length=10)
+    pizza_name = models.CharField(max_length=50, help_text="Enter pizza name",
+                                  null=True, blank=True)
+    pizza_descript = models.TextField(max_length=1000, help_text="Enter a description of the pizza",
+                                      null=True, blank=True)
+    pizza_weight = models.CharField(max_length=10, help_text="Enter weight", null=True, blank=True)
+    price = models.CharField(max_length=10, help_text="Enter prise")
+
+    def __str__(self):
+        return '%s, %s, %s, %s' %(self.pizza_name, self.pizza_descript, self.pizza_weight, self.price)
 
     LOAN_STATUS = (
         ('1', 'Pepperoni'),
@@ -54,5 +62,3 @@ class Pizza(models.Model):
     )
     filling = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='1', help_text='Choose filling')
 
-    def __str__(self):
-        return self.price
