@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
+# Добавляем элемент catalog в список urlpatterns, который направляет запросы с адреса catalog/ к catalog.urls
 from django.urls import include
 from django.urls import path
 
@@ -27,12 +28,14 @@ urlpatterns += [
     path('catalog/', include('catalog.urls')),
 ]
 
+# Перенаправление корневого URL на .../catalog/
 from django.views.generic import RedirectView
 
 urlpatterns += [
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
 ]
 
+# Размещение статических файлов (CSS, JavaScript и изображений)
 from django.conf import settings
 from django.conf.urls.static import static
 

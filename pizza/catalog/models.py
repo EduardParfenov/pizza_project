@@ -6,8 +6,8 @@ import uuid
 
 class Salesman(models.Model):
     full_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
-    first_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
-    last_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
+    first_name = models.CharField(max_length=30, help_text="Enter seller first name", null=True, blank=True)
+    last_name = models.CharField(max_length=30, help_text="Enter seller last name", null=True, blank=True)
     second_name = models.CharField(max_length=30, help_text="Enter seller name", null=True, blank=True)
     time_open = models.DateField('Open', null=True, blank=True)
     time_close = models.DateField('Close', null=True, blank=True)
@@ -35,7 +35,10 @@ class Pizza(models.Model):
     price = models.CharField(max_length=10, help_text="Enter prise")
 
     def __str__(self):
-        return '%s, %s, %s, %s' %(self.pizza_name, self.pizza_descript, self.pizza_weight, self.price)
+        return '%s, %s, %s, %s' % (self.pizza_name, self.pizza_descript, self.pizza_weight, self.price)
+
+
+##### дальнейший код не использую в БД #####
 
     LOAN_STATUS = (
         ('1', 'Pepperoni'),
