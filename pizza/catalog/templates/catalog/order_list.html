@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h1>Ваш заказ:</h1><br>
+
+        {% for order in order_list %}
+        <div>{{ order.list_pizza }}</div>
+        {% endfor %}
+
+
+
+
+
+{% endblock %}

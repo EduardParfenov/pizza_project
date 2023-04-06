@@ -22,15 +22,35 @@
       <div class="col-sm-2">
       {% block sidebar %}
       <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">Pizza</a></li>
-          <li><a href="">Salesman</a></li>
-          <li><a href="">Order</a></li>
+          <li><a href="{% url 'index' %}"><h3>В начало</h3></a></li><br>
+          <li><a href="{% url 'pizza' %}"><h3>Меню</h3></a></li><br>
+          <li><a href="{% url 'order' %}"><h3>Заказать</h3></a></li><br><br>
+          <li><a href="">Сегодня вас обслуживает продавец</a></li>
       </ul>
      {% endblock %}
       </div>
       <div class="col-sm-10 ">
       {% block content %}{% endblock %}
+
+<!-- Блок для пагинации -->
+           {% block pagination %}
+                {% if is_paginated %}
+                <div class="pagination">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><i>назад</i></a>
+                        {% endif %}
+                        <span class="page-current">
+                            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"><i>далее</i></a>
+                        {% endif %}
+                    </span>
+                </div>
+                {% endif %}
+           {% endblock %}
+
       </div>
     </div>
 

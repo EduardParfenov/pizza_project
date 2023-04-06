@@ -18,11 +18,14 @@ class Salesman(models.Model):
 
 class Order(models.Model):
     list_pizza = models.ForeignKey('Pizza', on_delete=models.SET_NULL, null=True)
-    count = models.IntegerField(max_length=10)
+    count = models.IntegerField()
     time_order = models.DateField('Time order', null=True, blank=True)
 
     def __str__(self):
         return '%s %s %s' % (self.list_pizza, self.count, self.time_order)
+
+    def get_absolute_url(self):
+        return reverse('order-detail', args=[str(self.id)])
 
 
 class Pizza(models.Model):
@@ -32,10 +35,14 @@ class Pizza(models.Model):
     pizza_descript = models.TextField(max_length=1000, help_text="Enter a description of the pizza",
                                       null=True, blank=True)
     pizza_weight = models.CharField(max_length=10, help_text="Enter weight", null=True, blank=True)
-    price = models.CharField(max_length=10, help_text="Enter prise")
+    price = models.CharField(max_length=10, help_text="Enter price")
 
     def __str__(self):
         return '%s, %s, %s, %s' % (self.pizza_name, self.pizza_descript, self.pizza_weight, self.price)
+
+    def get_absolute_url(self):
+        return reverse('pizza-detail', args=[str(self.id)])
+
 
 
 ##### дальнейший код не использую в БД #####

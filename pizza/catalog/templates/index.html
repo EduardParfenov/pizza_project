@@ -10,8 +10,10 @@
   <p>The Pizza has the following record counts:</p>
   <ul>
     <li><strong>Pizza:</strong> {{ num_pizzas }}</li>
-    <li><strong>Salesman:</strong> {{ num_salesmans }}</li>
     <li><strong>Order:</strong> {{ num_orders }}</li>
+    <li><strong>Salesman:</strong> {{ num_salesmans }}</li>
   </ul>
+
+<p>You have visited this page {{ num_visits }} time {{ num_visits|pluralize }}</p>
 
 {% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>В нашем меню сегодня следующие пиццы:</h1>
+
+    {% if pizza_list %}
+    <ul>
+        {% for pizza in pizza_list %}
+        <li>
+            <a href="{{ pizza.get_absolute_url }}"> {{ pizza.pizza_name }} </a> <i> Цена: {{ pizza.price }} </i>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+        <p> Такой пиццы нет в нашем меню. </p>
+    {% endif %}
+
+{% endblock %}
