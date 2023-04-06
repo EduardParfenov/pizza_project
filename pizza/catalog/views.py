@@ -34,3 +34,7 @@ class PizzaDetailView(generic.DetailView):
 class OrderListView(generic.ListView):
     model = Order
 
+
+class SalesmanListView(generic.ListView):
+    model = Salesman
+

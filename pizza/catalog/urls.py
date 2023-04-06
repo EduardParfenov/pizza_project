@@ -15,3 +15,7 @@ urlpatterns += [
 urlpatterns += [
     path('order/', views.OrderListView.as_view(), name='order'),
 ]
+
+urlpatterns += [
+    path('salesman/', views.SalesmanListView.as_view(), name='salesman'),
+]

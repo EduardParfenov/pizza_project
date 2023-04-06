@@ -5,7 +5,11 @@
     <h1>Ваш заказ:</h1><br>
 
         {% for order in order_list %}
-        <div>{{ order.list_pizza }}</div>
+        <p><strong>Номер заказа: </strong>{{ pizza.id }}<p>
+        <p><strong>Пицца: </strong>{{ order.list_pizza }}<p>
+        <p><strong>Количество: </strong>{{ order.count }}</p>
+        <p><strong>Дата заказа: </strong>{{ order.time_order }}</p><br>
+
         {% endfor %}
 
 

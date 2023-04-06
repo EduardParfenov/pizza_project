@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h1>Наши продавцы:</h1><br>
+
+        {% for salesman in salesman_list %}
+        <p><strong>Имя: </strong>{{ salesman.first_name }}<p>
+        <p><strong>Фамилия: </strong>{{ salesman.last_name }}<p><br>
+
+        {% endfor %}
+
+{% endblock %}
